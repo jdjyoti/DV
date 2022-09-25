@@ -169,14 +169,16 @@ function stopped() {
         .attr("x", (d, i) => 10 + i * 15)
         .attr("width", 15)
         .style("background", d => colorPalette(d))
+        .on("click", function (d, i){
+            animateMap(years[currentYearPos], [d + 0.7, d - 0.5 ])
+        });
     
     svgColorScale
         .selectAll("tr")
         .data(data)
         .append("td")
         .style("transform","rotateX(180deg)")
-        .text((d, i) => d.toFixed(2));
-       
+        .text((d, i) => d.toFixed(2))
 }
 
 function drawSlider() {
@@ -190,9 +192,8 @@ function drawSlider() {
         .step(1)
         .on('onchange', val => {
             d3.select('parameter-value').text(val).style("font-weight","bold");
-            currentYearPos = 0;
-            cu
-            animateMap(sliderSimple.value())
+            currentYearPos = years.indexOf(sliderSimple.value());
+            animateMap(sliderSimple.value(),null)
         });
     
     var gSimple = d3
@@ -205,7 +206,6 @@ function drawSlider() {
         .append('g')
         .attr('transform', 'translate(30,30)');
     gSimple.call(sliderSimple);
-    console.log(sliderSimple.value())
     gSimple.select("g .parameter-value").select("text").style("font-size","14px").style("fill","green").style("font-weight","bold")
 }
 
@@ -215,7 +215,7 @@ function startAnimation(){
     d3.select(".image-container").selectAll("#pause").style("display","block")
     d3.select(".image-container").selectAll("#play").style("display","none")
     isVideoPlaying = true;
-    animateMap(null);
+    animateMap(null,null);
     d3.select("#slider-year").attr('disabled','disabled').style("opacity",0.3).style("pointer-events","none");
 }
 
@@ -226,34 +226,38 @@ function stopAnimation(){
     d3.select("#slider-year").attr('disabled', null).style("opacity",1).style("pointer-events","all");
 }
 
-async function animateMap(selectedYearData) {
+async function animateMap(selectedYearData, anomalyRange) {
+    console.log(selectedYearData, anomalyRange)
     if (selectedYearData != null) {
-        showMap(null, selectedYearData)
+        let data = mapData.filter(function (row) {
+            return row['year'] == selectedYearData;
+        })
+        if(anomalyRange != null && anomalyRange.length > 0){
+            data =  data.filter(item => item.anomaly < anomalyRange[0] && item.anomaly > anomalyRange[1])
+        }
+        console.log(data)
+        showMap(null, selectedYearData, data)
     }
     else {
+        currentYearPos = 0;
         for (; currentYearPos < years.length; currentYearPos++) {
-            let res = await showMap(currentYearPos, selectedYearData);
-            console.log(res)
+            let data = mapData.filter(row => row['year'] == years[currentYearPos]);
+            let res = await showMap(currentYearPos, years[currentYearPos], data);
             if(res == false) {
                 stopAnimation();
                 break;
             }
         }
     }
-    function showMap(i, selectedYearData) {
+
+    function showMap(i,filteredYear,data) {
         return new Promise((resolve, reject) => {
             setTimeout(function () {
-                let filteredYear;
-                let anomaly_by_year = mapData.filter(function (row) {
-                    filteredYear = selectedYearData == null ? years[i] : selectedYearData
-                    return row['year'] == filteredYear;
-                })
-                
                 d3.selectAll(".year-details").text(filteredYear)
                 d3.select("#map").selectAll("path")
                     .data(world_data.features).transition()
                     .style("fill", function (d) {
-                        return pickColor(d.properties, anomaly_by_year)
+                        return pickColor(d.properties, data)
                     })
                 if (i == years.length - 1) {
                     currentYearPos = 0
