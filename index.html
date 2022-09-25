@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Berkley Earth Data</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3-selection-multi.js"></script>
+    <script type="text/javascript" src="d3/topojson.js"></script>
+    <script type="text/javascript" src="d3/d3-tip.min.js"></script>
+    <script type="text/javascript" src="d3/d3-scale-chromatic.v1.min.js"></script>
+    <script type="module" src="https://unpkg.com/d3-simple-slider"></script>
+    <script type="module" src="scripts/line-chart.js"></script>
+    <script type="module" src="scripts/script.js"></script>
+    <script type="module" src="scripts/warming_stripes.js"></script>
+    <script type="module" src="scripts/colors.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="row">
+        <div class="topnav">
+            <text class="center-heading">Berkley Earth Data Visualization</text>
+            <a href="#countries" onclick="changeNavigationBar(this,'.col-1', '.col-2')">World Map</a>
+            <a href="#world" onclick="changeNavigationBar(this, '.col-2','.col-1')">Top 10 Hottest Years</a>
+        </div>
+        <div class="col-1 wrap">
+            <div class="fleft">
+                <div class="top">
+                    <div id="map_view">
+                        <div class="year-details"></div>
+                        <svg id="svgMap" viewBox="0 0 950 450" class="view-right">
+                        </svg>
+                        <table class="view-left">
+                            <tbody id="color_scale" class="scale" height="300"></tbody>
+                        </table>
+                        <div class="map-name">World</div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="image-container">
+                        <img id="play" width="35" height="35" src="images/play.svg" onclick="startAnimation()"></img>
+                        <img id="pause" style="display: none" width="35" height="35" src="images/pause.svg"
+                            onclick="stopAnimation()"></img>
+                    </div>
+                    <div id="slider-year"></div>
+                    <text id="map-captions">Temperature anomaly change of all countries from 1850 to 2020</text>
+                </div>
+            </div>
+            <div class="fright">
+                <div class="top">
+                    <div id="line_chart"></div>
+                </div>
+                <div class="bottom">
+                    <div id="warming_stripes"></div>
+                    <text></text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <text id="linechart_description"></text>
+    <div class="col-2 wrap">
+        <div class="gap-top" id="multi_line_chart_mothly"></div>
+        <svg id="linechart_legends" height=350 width=450></svg>
+        <div class="gap-top" id="multi_line_chart_five_year"></div>
+    </div>
+    </div>
+</body>

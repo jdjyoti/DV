@@ -1,0 +1,507 @@
+/* Font Styles */
+
+@font-face {
+    font-family: 'cursive';
+    src: url("assets/fonts/roboto-v27-latin-regular.eot");
+    /* IE9 Compat Modes */
+    src: url("/assets/fonts/roboto-v27-latin-regular.eot") format('embedded-opentype'),
+        /* IE6-IE8 */
+        url("assets/fonts/roboto-v27-latin-regular.woff") format('woff'),
+        /* Modern Browsers */
+        url("assets/fonts/roboto-v27-latin-regular.ttf") format('truetype'),
+        /* Safari, Android, iOS */
+        url("assets/fonts/roboto-v27-latin-regular.svg") format('svg');
+    /* Legacy iOS */
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+/* Format of Preset */
+
+pre {
+    font-family: 'Roboto', sans-serif;
+    height: fit-content;
+    width: fit-content;
+    margin: 0px;
+}
+
+
+/* Tip text Format*/
+
+.tip_text {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/* Body and Scroll Bar and Misclenious Others*/
+
+html {
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto', cursive;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+
+/* Different Views */
+
+#graphs {
+    width: 100%;
+    height: fit-content;
+}
+
+#map_view {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding-top:2%;
+}
+
+#line_chart {
+    background-color: white;
+}
+
+/* Heading Styles */
+
+#header {
+    width: 100%;
+    height: fit-content;
+    background-color: #1D9913;
+    -webkit-box-shadow: 0 2px 8px .1px #6b6b6b;
+    box-shadow: 0 2px 8px .1px #6d6d6d;
+}
+
+#title {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: fit-content;
+    font-size: 1.5em;
+    font-weight: 200;
+    color: white;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    z-index: 99;
+}
+
+.column {
+    float: right;
+    width: 5%;
+  }
+/* Map Styles */
+
+#map {
+    fill: none;
+}
+
+#map-tip {
+    color: #99131c;
+}
+
+.countries {
+    fill: #f3f3ee;
+    stroke: rgb(17, 17, 17);
+    stroke-width: 0.3;
+    transition-duration: 800ms;
+}
+
+.countries:hover {
+    fill: rgb(169, 248, 138);
+    opacity: 1;
+    stroke-width: 0.8;
+    stroke: rgb(17, 16, 16);
+    transition-duration: 900ms;
+}
+
+.lagend_selected_country {
+    fill: #0afd32;
+    stroke: rgb(3, 12, 3);
+    stroke-width: 0.8;
+    transition-duration: 800ms;
+}
+
+.selectedCountry {
+    stroke: #00f80c;
+    stroke-width: 0.8;
+}
+
+.map-name {
+    color:black;
+    font-weight: bold;
+    font-size:  20px;
+    position: absolute;
+    top: -10px;
+    right: 50%;
+}
+
+.year-details {
+    color:black;
+    font-weight: bold;
+    font-size:  20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#slider-year{
+z-index: 999;
+}
+
+#map-captions {
+    padding: 80px;
+    position: absolute;
+    font-size: medium;
+}
+
+.wrap {
+    width: 100%;
+}
+
+.fleft {
+    float: left;
+    width: 63%;
+}
+
+.fleft .top {
+    float: left;
+    height: 75%;
+}
+
+.fleft .top .view-left {
+    width: 8%;
+    float: left;
+}
+
+.fleft .top .view-right {
+    width: 92%;
+    float: right;
+    background-color: #d7e9fa;
+}
+
+.fleft .bottom {
+    float: left;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.image-container {
+    margin-top: 20px;
+}
+
+/* .slider-align {
+    margin: auto;
+    display: block;
+} */
+
+.fright {
+    float: right;
+    width: 37%;
+}
+
+.fright .top {
+    margin: auto;
+    height: 60%;
+    padding-bottom: 10%;
+}
+
+.fright .bottom {
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    display: grid;
+    text-align: center;
+}
+
+
+#warming_stripes {
+    vertical-align: middle;
+    margin: auto;
+    margin-left: -10%;
+}
+
+.slidecontainer {
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    left: 35%;
+    transform: translate(-30%, 250%)
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #121414;
+    cursor: pointer;
+}
+
+.slider+label {
+    background-color: #fff;
+    position: absolute;
+    top: -25px;
+    left: 110px;
+    width: 80px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* tooltip */
+
+.tooltip {
+    padding: 2px;
+    pointer-events: none;
+    z-index: 999;
+    stroke: #000;
+    height: 30px;
+    width: 150px;
+    fill: white;
+    font-size: 10px;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.tooltip-details {
+    text-transform: capitalize;
+    z-index: 999;
+    position: absolute;
+    background-color: white;
+    height: auto;
+    white-space: pre-line;
+    padding: 0.5%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    display: block;
+    margin: 0;
+    width: 100%;
+    background: transparent;
+}
+
+.ticks {
+    display: flex;
+    justify-content: space-between;
+    padding: 10 20;
+}
+
+.tick {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 1px;
+    background: gray;
+    height: 10;
+    line-height: 0.5;
+    margin-bottom: 2;
+}
+
+.rect {
+    height: 40px;
+}
+
+.scale {
+    position: absolute;
+    top: 160px;
+    left: 20px;
+    border-spacing: 0px;
+    font-size: 10px;
+    color: #000;
+}
+/*line*/
+#line_chart {
+    margin-left: 5%;
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    stroke: blue;
+    stroke-width: 1.5px;
+}
+
+.overlay {
+    fill: none;
+    stroke: blue;
+    pointer-events: all;
+}
+
+.focus {
+    z-index: 900;
+    pointer-events: none;
+}
+
+.focus text {
+    font-size: 10px;
+}
+
+/* map zoom */
+.background {
+    fill: none;
+    pointer-events: all; 
+  }
+  
+  .feature {
+    fill: #ccc;
+    cursor: pointer;
+  }
+  
+  .feature.active {
+    fill: orange;
+  }
+  
+  .mesh {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* #top-nav */
+  .topnav {
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    position: relative;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    z-index: 999;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: rgb(118 170 177);
+    color: white;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+  }
+
+  .row {
+    display: grid; /* equal height of the children */
+  }
+  
+  .col-1 {
+    flex: 1; /* additionally, equal width */
+    padding: 1em;
+    display: flex;
+  }
+
+  .col-2 {
+    flex: 1; /* additionally, equal width */
+    padding: 1em;
+    display: flex;
+  }
+
+  .center-heading {
+    color: #b8b3f7;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    left: 0;
+    right: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: fit-content;
+  }
+  
+.gap-top{
+    padding-right:20px;
+    padding-top: 70px;
+}
+
+.top10-text{
+    padding: 40px;
+    position: absolute;
+    font-weight: 400;
+    font-size: larger;
+}
+
+#linechart_legends{
+    padding-top: 5%;
+}
+
+#linechart_description{
+    display: block;
+    text-align: center;
+}
