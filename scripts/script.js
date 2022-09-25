@@ -280,7 +280,7 @@ function pickColor(country, mapDataPerYear) {
 function createWorldAnnualAnomalyLineChart(worldDataForAllYears) {
     d3.select(".col-2").append("text").text("Top Ten Hottest Years").attr("class","top10-text");
     d3.select(".col-2").append("text").text("The ten hottest years have been from the years 2005 to 2021. These charts show the trend of the top 10 years with increasing anomaly").style("position","absolute")
-        .style("bottom", "0");
+        .style("bottom", "0").style("left","20%").style("top","100%");
     let yearsToPlot = [...new Set(worldDataForAllYears.map(item => item.Year))]
     d3.selectAll("#multi_line_chart_mothly  > *").remove();
     d3.selectAll("#multi_line_chart_five_year  > *").remove();

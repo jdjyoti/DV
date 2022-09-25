@@ -230,7 +230,6 @@ z-index: 999;
 
 #warming_stripes {
     vertical-align: middle;
-    margin: auto;
     margin-left: -10%;
 }
 
@@ -495,6 +494,7 @@ input[type=range] {
     position: absolute;
     font-weight: 400;
     font-size: larger;
+    left:40%;
 }
 
 #linechart_legends{
