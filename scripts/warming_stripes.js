@@ -13,7 +13,7 @@ export function drawWarmingStripes(data) {
     let hoveredYear;
     var svgStripes = divStripes.append("svg")
         .attr("height", stripeHeight)
-        .attr("width", "140%")
+        .attr("width", "115%")
         .selectAll("rect")
         .data(data)
         .enter()
