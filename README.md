@@ -1,4 +1,5 @@
 # Data Visualization project-Berkley Earth
+The project is aimed at visualizing the temperature anomalies worldwide since 1850, using Berkley Earth Data. It consists of an interacive world map with the option to see the animation which can also be controlled using the slider or play/pause button, a zoom function, tooltip and a clickable legend. It also allows to select a country on the map and look at their individual data in the form of a line chart and climate stripes. There is another tab to check the top 10 countries with biggest anomalies with 5-year and 10-year anomaly values.
 
 #### The project folder contains:
 
